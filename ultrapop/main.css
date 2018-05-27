@@ -1,0 +1,213 @@
+/************
+	ボディ部
+*************/
+div.question{
+	padding-top: 140px;
+}
+
+p.questiontext{
+	font-weight:900;
+	font-size:180%;
+	font-family: 'Noto Sans Japanese';
+}
+p.questiontext_M{
+	font-weight:900;
+	font-size:240%;
+	font-family: 'Noto Sans Japanese';
+}
+p.questiontext_L{
+	font-weight:900;
+	font-size:600%;
+	font-family: 'Noto Sans Japanese';
+}
+
+div.pop {
+	background-image: url("./img/pop.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1200px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+	
+}
+
+div.dead {
+	background-image: url("./img/gaikotu.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1000px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+div.lightning {
+	background-image: url("./img/lightning.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1000px;
+
+	align-self: center;
+}
+
+div.living {
+	background-image: url("./img/mountain.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1000px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+div.paint {
+	background-image: url("./img/paint.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1000px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+div.bend {
+	background-image: url("./img/witch.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1000px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+div.adventure {
+	background-image: url("./img/adventure.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 900px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+div.creation{
+	background-image: url("./img/creation.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	width:100%;
+	min-height: 1200px;
+
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+.manifest_text_L {
+	width:80%;
+	margin: auto;
+	text-align: center;
+
+	text-shadow: 0px 0px 6px #f00,
+	1px 1px 6px #ff0,
+	-1px 0px 6px #f0f,
+	0px -1px 6px #0ff;
+
+	color:#fff;
+	font-size:250%;
+	font-weight:900;
+}
+
+.manifest_text_LL {
+	width:80%;
+	text-align: center;
+	margin: auto;
+
+	text-shadow: 0px 0px 6px #f00,
+	1px 1px 6px #ff0,
+	-1px 0px 6px #f0f,
+	0px -1px 6px #0ff;
+
+	color:#fff;
+	font-size:350%;
+	font-weight:900;
+}
+
+.manifest_text_L_B {
+	margin: auto;
+	text-align: center;
+
+	text-shadow: 0px 0px 6px #fff,
+	1px 1px 16px #fff,
+	-1px 0px 26px #fff,
+	0px -1px 36px #fff;
+
+	color:#e00;
+	font-size:300%;
+	font-weight:900;
+}
+
+.manifest_text_LL_B {
+	margin: auto;
+	text-align: center;
+
+	text-shadow: 0px 0px 6px #fff,
+	1px 1px 16px #fff,
+	-1px 0px 26px #fff,
+	0px -1px 36px #fff;
+
+	color:#e00;
+	font-size:400%;
+	font-weight:900;
+}
+
+.manifest_text_LL_B2 {
+	margin: auto;
+	text-align: center;
+
+	text-shadow: 0px 0px 6px #f00,
+	1px 1px 16px #ff0,
+	-1px 0px 26px #f0f,
+	0px -1px 36px #f00;
+
+	color:#fff;
+	font-size:400%;
+	font-weight:900;
+}
+

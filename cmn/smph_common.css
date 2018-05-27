@@ -1,0 +1,294 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+body {
+	margin: 0;
+	font-family: 'Noto Sans Japanese';
+	background-color: rgba(246, 246, 222, 1);
+
+	text-align: center;
+
+	min-width: 350px;
+	font-size: 60%;
+}
+
+
+/************
+	共通
+*************/
+
+img{
+	border-radius: 20px;
+	max-width: 90%;
+}
+
+a{
+	color: #404040;
+	text-decoration:none;
+}
+a:hover {
+	color: #c8c8c8;
+}
+a:active {
+	color: #c8c8c8;
+}
+
+/************
+	冒頭部
+*************/
+
+div#headblkbox{
+	min-width: 300px;
+	display: inline-block;
+	margin-top: -10px;
+}
+
+img#kao{
+	width:90px;
+  	transform: rotate(25deg);
+
+	margin: auto;
+	margin-left: 0px; 
+    display: inline-block;
+    animation: hurueru .1s  infinite;
+
+	float : left;
+	align-items: flex-start;
+}
+
+@keyframes hurueru {
+	0% {transform: translate(0px, 0px) rotateZ(20deg)}
+	25% {transform: translate(2px, 2px) rotateZ(25deg)}
+    50% {transform: translate(0px, 2px) rotateZ(20deg)}
+    75% {transform: translate(2px, 0px) rotateZ(15deg)}
+    100% {transform: translate(0px, 0px) rotateZ(20deg)}
+}
+
+img:hover#kao{
+	animation: hurueru2 .1s  infinite;
+}
+
+@keyframes hurueru2 {
+	0% {transform: translate(0px, 0px) rotateZ(15deg)}
+	25% {transform: translate(2px, 2px) rotateZ(25deg)}
+    50% {transform: translate(0px, 2px) rotateZ(15deg)}
+    75% {transform: translate(2px, 0px) rotateZ(5deg)}
+    100% {transform: translate(0px, 0px) rotateZ(15deg)}
+}
+
+img#pyuu {
+	margin-top: 20px;
+	padding-left: 10px;
+	width:30px;
+	max-width : 20% ;
+	display: block;
+
+	animation: vertical .35s ease-in-out infinite alternate;
+}
+
+@keyframes horizontal {
+    0% { transform:translateX( -3px); }
+  100% { transform:translateX(  0px); }
+}
+@keyframes vertical {
+    0% { transform:translateY(-10px); }
+  100% { transform:translateY(  0px); }
+}
+
+p#headcmt {
+	font-weight:900;
+	color:#fff;
+	font-size:120%;
+
+	display: block;
+	min-width: 50px;
+
+	margin-top: -20px;
+	margin-left: 90px;
+	margin-right: 0px;
+
+	padding:	10px;
+	padding-left:	10px;
+	padding-right:	10px;
+
+	background:	rgba(255,240,240,0.8);
+	border-radius: 10px;
+	border-top-left-radius:  20px;
+	border-bottom-left-radius: 20px;
+
+	transform: rotate(-10deg);
+
+	text-shadow: 1px 1px 0px #999988;
+
+    filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 5px 10px);
+
+	text-shadow: 0px 0px 6px #a00,
+	1px 1px 6px #aa0,
+	-1px 0px 6px #a0a,
+	0px -1px 6px #0aa;
+
+}
+
+div#headbar2 {
+	background-color: rgba(246, 0, 0, 0.95);
+}
+
+div#headbar {
+	background-color: rgba(255, 0, 0, 0.95);
+	padding-bottom: -10px;
+	text-shadow: 1px 2px 2px #a00,
+	3px 3px 5px #a00,
+	3px 3px 15px #a00,
+	3px 3px 25px #a00;
+}
+
+p#headtitle1 {
+    font-weight: 900;
+	font-size:100%;
+
+	margin-top: -7px;
+	margin-left: 10px;
+
+    filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 2px);
+}
+
+p#headtitle2 {
+    font-weight: 900;
+	font-size:280%;
+
+	margin-top: -15px;
+	margin-left: 30px;
+
+    filter: drop-shadow(rgba(0, 0, 0, 0.3) 0px 0px 2px);
+}
+
+a.headtitlelink1 {
+
+	color: #ffffff;
+}
+
+
+div.manifest {
+/*	background-image: url("./cmnImg/author.jpg");
+*/
+	background-image: url("./cmnImg/smph_cmnImg/author.jpg");
+/*	background-attachment: fixed;
+*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	margin-top: -55px;
+	margin-bottom: -25px;
+
+	padding-top: 30px;
+	padding-bottom: 30px; 
+
+	width:100%;
+/*	height: 400px;
+*/
+	align-self: center;
+
+	vertical-align:middle;
+	text-align: center;
+}
+
+.manifest_text {
+	width:80%;
+	margin: auto;
+	text-shadow: 0px 0px 6px #f00,
+	1px 1px 6px #ff0,
+	-1px 0px 6px #f0f,
+	0px -1px 6px #0ff;
+	text-align: center;
+	color:#fff;
+	font-size:150%;
+	font-weight:900;
+}
+
+
+/************
+	ボディ部
+*************/
+div#contentstop{
+	font-weight:900;
+	font-size: 200%;
+	color:#ffffff;
+
+	margin-top:-30px;
+	margin-bottom:20px;
+
+	background:	rgba(  255,240,240,0.50);
+	text-shadow: 1px 2px 2px #c30,
+	0px 0px 5px #c30,
+	0px 0px 15px #c30,
+	0px 0px 25px #c30;
+
+	font-family: 'Noto Sans Japanese';
+
+}
+
+div.contentstop2{
+	height: 1.2em;
+
+	font-weight:900;
+	font-size: 200%;
+	color:#ffffff;
+
+	margin-top:10px;
+	margin-bottom:20px;
+
+	background:	rgba(  255,0,0,0.90);
+	text-shadow: 1px 2px 2px #a00,
+	3px 3px 5px #a00,
+	3px 3px 15px #a00,
+	3px 3px 25px #a00;
+
+	font-family: 'Noto Sans Japanese';
+}
+
+a.contentstoplnk{
+	color: #ffffff;
+}
+
+div.contentstitle{
+	font-weight:900;
+	font-size: 160%;
+	color:#ffffff;
+
+	margin-bottom:20px;
+
+	border-radius: 10px;
+
+	background:	rgba(  255,0,0,0.90);
+
+	transform: rotate(-1deg);
+	box-shadow: 0px 1px 1px #430;
+
+	text-shadow: 1px 2px 2px #400,
+	3px 3px 5px #400,
+	3px 3px 15px #400,
+	3px 3px 25px #400;
+
+	font-family: 'Noto Sans Japanese';
+
+}
+
+/************
+	下部
+*************/
+div.whitebox{
+	background-color: #fff;
+}
+
+div.fb-comments{
+	background-color: #fff;
+	width: 850px;
+	margin: auto;
+}
+
+#bottompict {
+	background-color: #808080;
+	background-image: url("https://kisimoto.sakura.ne.jp/cmn/cmnImg/smph_cmnImg/footer1.jpg");
+	background-repeat: no-repeat;
+	height: 280px;
+}

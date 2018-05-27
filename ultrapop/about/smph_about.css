@@ -1,0 +1,89 @@
+div#aboutmain{
+	margin: auto;
+
+	margin:5px;
+
+	min-width:300px;
+	background-color: #fffff8;
+	text-align: left;
+	padding: 5px;
+
+	font-family: 'Noto Sans Japanese';
+
+	font-size:130%;
+	color:#402028;
+
+	border-radius: 30px;
+
+	box-shadow: 2px 2px 15px #444;
+}
+
+h1.about{
+	margin-top:50px;
+	font-family: 'Noto Sans Japanese';
+	font-weight: 900;
+
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+
+	background:	rgba(  255,0,0,0.95);
+
+	margin-left:-5px;
+	margin-right:50px;
+	margin-top:40px;
+	margin-bottom:20px;
+
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	transform: rotate(-1deg);
+	box-shadow: 0px 1px 1px #430;
+
+	width:95%;
+
+	text-shadow: 1px 2px 2px #400,
+	3px 3px 5px #400,
+	3px 3px 15px #400,
+	3px 3px 25px #400;
+
+	color: #fff8f8;
+}
+
+ul.aboutul{
+
+	font-family: "SF Pro JP","SF Pro Text","Apple TP","Myriad Set Pro","SF Pro Icons","Apple Legacy Icons","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 35px;
+}
+
+li.aboutli{
+	font-family: "SF Pro JP","SF Pro Text","Apple TP","Myriad Set Pro","SF Pro Icons","Apple Legacy Icons","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+	padding-bottom: 10px;
+	font-size:120%;
+}
+
+p.abouttxt{
+	font-family: "SF Pro JP","SF Pro Text","Apple TP","Myriad Set Pro","SF Pro Icons","Apple Legacy Icons","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+	text-indent: 1em;
+	padding-left: 5px;
+	padding-right: 10px;
+	margin-left: 5px;
+	font-weight: 300;
+	font-size:120%;
+}
+
+p.centerinline{
+	text-align: center;
+	padding: 10px;
+}
+
+.about {
+/*	display: block !important;*/
+	max-width: 100%;
+}
+
+a.about{
+	border-bottom: thin solid #505050;
+}
