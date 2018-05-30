@@ -171,8 +171,10 @@ function echoEntryRow($row,$rl_flg,$entnum){
 
 	if($rl_flg == 0){// 本文左右の振り分け
 		echo "<div class=\"entrytext_l\">";
+		echo "<div  class=\"extemb\">";
 	}else{
 		echo "<div class=\"entrytext_r\">";
+		echo "<div  class=\"extemb\">";
 	}
 	echo $text;
 	$text = strip_tags($text);
@@ -192,6 +194,7 @@ function echoEntryRow($row,$rl_flg,$entnum){
 	echo "<br><a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-url=\"https://kisimoto.sakura.ne.jp/?sid=$entryid&entnum=1\" data-via=\"ultrapop5\" data-related=\"ultrapop5\">Tweet</a>";
 	echo " <div class=\"fb-like\" data-href=\"https://kisimoto.sakura.ne.jp/?sid=$entryid&entnum=1\" data-layout=\"button_count\" data-action=\"like\" data-size=\"small\" data-show-faces=\"true\" data-share=\"true\"></div>";
 	echo " <a href=\"http://b.hatena.ne.jp/entry/s/kisimoto.sakura.ne.jp/?sid=$entryid&entnum=1\" class=\"hatena-bookmark-button\" data-hatena-bookmark-title=\"$title ｜キシモトシンジのスクラップブッキング\" data-hatena-bookmark-layout=\"vertical-normal\" data-hatena-bookmark-lang=\"ja\" title=\"このエントリーをはてなブックマークに追加\"><img src=\"https://b.st-hatena.com/images/entry-button/button-only@2x.png\" alt=\"このエントリーをはてなブックマークに追加\" width=\"20\" height=\"20\" style=\"border: none;\" /></a>";
+	echo "</div>";
 	echo "</div>";
 	echo "</div>";
 }
