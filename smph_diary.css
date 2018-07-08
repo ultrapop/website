@@ -1,7 +1,7 @@
 /************
 	ボディ部
 *************/
-div.contentstitle{
+/*div.contentstitle{
 	font-weight:900;
 	font-size: 160%;
 	color:#ffffff;
@@ -10,7 +10,7 @@ div.contentstitle{
 
 	border-radius: 10px;
 
-	background:	rgba(  255,0,0,0.90);
+	background:	rgba(  255,0,0);
 
 	transform: rotate(-1deg);
 	box-shadow: 0px 1px 1px #430;
@@ -23,6 +23,7 @@ div.contentstitle{
 	font-family: 'Noto Sans Japanese';
 
 }
+*/
 
 div#entries{
 	min-width:300px;
@@ -38,7 +39,7 @@ div#hetriestop{
 	margin-bottom:50px;
 	margin-bottom: 0px;
 
-	background: linear-gradient(0deg, rgba(  250,65,0,0), rgba(  250,65,0,1));
+	background: linear-gradient(0deg, rgba(  250,65,0,0), rgba(  250,65,0));
 
 	text-shadow: 1px 2px 2px #400,
 	3px 3px 5px #400,
@@ -52,7 +53,7 @@ div#hetriestop{
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 
-	background:	rgba(  255,0,0,0.95);
+	background:	rgba(  255,0,0);
 
 	margin-left:25px;
 	margin-top:20px;
@@ -70,7 +71,7 @@ div#hetriestop{
 	border-top-left-radius: 10px;
  	border-bottom-left-radius: 10px;
 
-	background:	rgba(  255,0,0,0.92);
+	background:	rgba(  255,0,0);
 
 	transform: rotate(1deg);
 	box-shadow: 0px 1px 1px #500;
