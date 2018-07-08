@@ -23,6 +23,8 @@ session_start();
 <meta property="og:site_name"  content="キシモトシンジのスクラップブッキング" />
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ultrapop5">
+<script type="text/javascript" src="./jquery-1.12.4.js"></script>
+
 <?php
 //og:url の設定
 echo "<meta property=\"og:url\"  content=\"";
@@ -102,30 +104,116 @@ echo "\" />\n";
 
 
 <?php
-echoUA_lyr0();//ユーザーエージェント別にCSSをechoする
+echoUA_lyr1();//ユーザーエージェント別にCSSをechoする
 	$ua = $_SERVER['HTTP_USER_AGENT'];
 	$mainClms = 1; // メインの段組み１カラム（デフォルト）
 
 	if ((strpos($ua, 'Android') !== false) && (strpos($ua, 'Mobile') !== false) || (strpos($ua, 'iPhone') !== false) || (strpos($ua, 'Windows Phone') !== false)) {
     	// スマートフォンからアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./smph_diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"../smph_diary.css\" type=\"text/css\">";
 
 	} elseif ((strpos($ua, 'Android') !== false) || (strpos($ua, 'iPad') !== false)) {
     	// タブレットからアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"../diary.css\" type=\"text/css\">";
 
 	} elseif ((strpos($ua, 'DoCoMo') !== false) || (strpos($ua, 'KDDI') !== false) || (strpos($ua, 'SoftBank') !== false) || (strpos($ua, 'Vodafone') !== false) || (strpos($ua, 'J-PHONE') !== false)) {
     	// 携帯からアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"../diary.css\" type=\"text/css\">";
 	} else {
     	// その他（PC）からアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"../diary.css\" type=\"text/css\">";
 		$mainClms = 2; // メインの段組み１カラム
 	}
 ?>
 
 </head>
 <body>
+<script>
+
+//$(function () {
+//	$("img").hide();
+//	$("#test").text("hello world!");
+//});
+$(// "jQuery(document).ready("に相当する
+	function(){
+//		loadFunczzz();
+//		$(".test2").click(testFunc);
+		$(".test3").click(testFunc2);
+//		$(".test2").hover(overFunc, outFunc);
+		$("img").hover(overFunc, outFunc);
+
+		$("button").click(function(){
+			$("img").slideToggle(6000);
+		});
+
+		$(".test2").click(function (){
+			$(this).next().text("bbbb");
+		});
+}
+);
+
+$(function(){
+//	$("body").text("<a class=\\"twitter-timeline\\" data-width=\\"400\\" data-height=\\"800\\" data-theme=\\"light\\" href=\\"https\\:\\/\\/twitter.com\\/ultrapop5\\?ref_src\\=twsrc\\%5Etfw\\">Tweets by ultrapop5<\\/a><script async src=\\"https\\:\\/\\/platform.twitter.com\\/widgets.js\\" charset\\=\\"utf-8\\"><\\/script>");
+//	$("body").innerHTML("<a class=\">");
+
+
+$("#snsHubBox").append("<script src=\"https://instawidget.net/js/instawidget.js?u=54e107b36d9bae3da99148f8d6c40497fe7e7a4017faeb2d04ceb7fa1298b14f&width=300px\"><\/script>");
+});
+
+$(// "jQuery(document).ready("に相当する
+	function(){
+//		loadFunczzz();
+//		$(".test2").click(testFunc);
+//		$(".test3").click(testFunc2);
+	}
+);
+
+function overFunc(){
+	$(this).animate({width: "600px"},6000);
+	//	this.innerHTML="Hover!";
+//	css("background-color", "#FC6");
+}
+function outFunc(){
+	$(this).animate({width: "100px"});
+//	$(this).css("background-color", "#09C");
+}
+
+$(".test2").on("click", "p", function (){
+	alert("click!");
+});
+function loadFunczzz(){
+//	$("img").hide();
+};
+		
+function testFunc(){
+	$("img").hide();
+//	alert("Hello world!");
+//	var num = $(".test2").length;
+//		alert(num);
+};
+		
+function testFunc2(){
+	$("img").show();
+//	alert("Hello world!");
+//	var num = $(".test2").length;
+//		alert(num);
+};
+
+
+
+
+ $(document).ready(function() {
+   $("a").click(function() {
+     alert("Hello world!２２２");
+   });
+ });
+</script>
+<button>toggle</button>
+<p id="test">aaaa</p>
+<p class="test2">aaaa</p>
+<p class="test3">aaaa</p>
+<p class="test2">aaaa</p>
+<p class="test2">aaaa</p>
 
 <!-- fbコメントプラグインのjsらしきもの（ここで表示しているのではない）-->
 	<div id="fb-root"></div>
@@ -162,18 +250,13 @@ echo "</p>\n";
 	<div id="headblock">
 		<div id="headblkbox">
 			<div id="headblkbox_left">
-				<img id="kao" src="./cmn/cmnImg/kao.png" alt="キシモトシンジの顔がぷるるんしている">
+				<img id="kao" src="../cmn/cmnImg/kao.png" alt="キシモトシンジの顔がぷるるんしている">
 			</div>
 			<div id="headblkbox_right">
-				<img id="pyuu"  src="./cmn/cmnImg/pyuu.png" alt="ピュー"><br>
+				<img id="pyuu"  src="../cmn/cmnImg/pyuu.png" alt="ピュー"><br>
 
-
-<form>
-<input type="button" name="link" value="TOPへ" onclick="jump()">
-</form>
 
 <?php
-
 //  上部のコメントをランダム表示する
 echoTopCmt2($pdo);
 ?>
@@ -195,22 +278,6 @@ echoTopCmt2($pdo);
 	</div>
 	<div id="colums2">
 		<div id="entries">
-
-<form name="navi">
-<select name="contents" onchange="selectNavi()">
-<option>下から選んでね</option>
-  <option>https://yahoo.co.jp</option>
-  <option>https://google.com</option>
-  <option>http://hatena.ne.jp</option>
-</select>
-</form>
-
-<form>
-<input type="button"  value="戻る" onclick="modoru()">
-<input type="button"  value="進む" onclick="susumu()">
-<input type="button"  value="更新" onclick="koshin()">
-</form>
-
 <?php
 
 // ・id初期値を取得する
@@ -310,7 +377,7 @@ if($mainClms == 2){
 	echo "<a class=\"twitter-timeline\" data-width=\"400\" data-height=\"800\" data-theme=\"light\" href=\"https://twitter.com/ultrapop5?ref_src=twsrc%5Etfw\">Tweets by ultrapop5</a> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>";
 	//InstaWidget
 	echo "<a href=\"https://instawidget.net/v/user/kishimotoshinji\" id=\"link-54e107b36d9bae3da99148f8d6c40497fe7e7a4017faeb2d04ceb7fa1298b14f\">@kishimotoshinji</a>";
-	echo "<script src=\"https://instawidget.net/js/instawidget.js?u=54e107b36d9bae3da99148f8d6c40497fe7e7a4017faeb2d04ceb7fa1298b14f&width=300px\"></script>";
+//	echo "<script src=\"https://instawidget.net/js/instawidget.js?u=54e107b36d9bae3da99148f8d6c40497fe7e7a4017faeb2d04ceb7fa1298b14f&width=300px\"></script>";
 	
 	echo "<iframe src=\"https://tools.applemusic.com/embed/v1/playlist/pl.u-11zBvR3TBNEep?country=jp\" height=\"700px\" width=\"100%\" frameborder=\"0\"></iframe>";
 	echo "</div>";//  id="sns"の終わり
@@ -326,20 +393,20 @@ echo "<div id=\"btmlnk\">";
 if( $i - $loopCnt > 0){ // エントリ出力ループで、 一番古い記事を表示していないか？＝つまりもう過去記事はない
 	$startEntryId = $entryIdArray[ $i - $loopCnt - 1];
 	echo "<a class=\"nextprev\"  href=\"./?sid=$startEntryId&entnum=$DEFAULT_ENTRY_NUM\">";
-	echo "<img src=\"./cmn/cmnImg/left.png\" alt=\"歴史深い\">";
+	echo "<img src=\"../cmn/cmnImg/left.png\" alt=\"歴史深い\">";
 	echo "</a>";
 
 	if ($entnum == 1) {// 一度に表示するエントリが１つだけの時は、特定の記事を移行できるようにしておく
 		$startEntryId = $entryIdArray[ $i - $loopCnt - 1];
 		echo "<a class=\"nextprev\"  href=\"./?sid=$startEntryId&entnum=$SINGLE_ENTRY_NUM\">";
-		echo "<img src=\"./cmn/cmnImg/left_l.png\" alt=\"１つ古い\">";
+		echo "<img src=\"../cmn/cmnImg/left_l.png\" alt=\"１つ古い\">";
 		echo "</a>";
 	}
 }
 
 // -- TOPへ
 echo "<a class=\"nextprev\"  href=\"./?entnum=$DEFAULT_ENTRY_NUM\">";
-echo "<img src=\"./cmn/cmnImg/up.png\" alt=\"TOP\">";
+echo "<img src=\"../cmn/cmnImg/up.png\" alt=\"TOP\">";
 echo "</a>";
 
 // これより新しい記事があればリンクを生成
@@ -353,7 +420,7 @@ if( $i < count( $entryIdArray ) - 1){
 		$startEntryId = $entryIdArray[ $j ];
 
 		echo "<a class=\"nextprev\" href=\"./?sid=$startEntryId&entnum=$SINGLE_ENTRY_NUM\">";
-		echo "<img src=\"./cmn/cmnImg/right_l.png\" alt=\"１つ新しい\">";
+		echo "<img src=\"../cmn/cmnImg/right_l.png\" alt=\"１つ新しい\">";
 		echo "</a>";
 	}
 
@@ -365,7 +432,7 @@ if( $i < count( $entryIdArray ) - 1){
 	$startEntryId = $entryIdArray[ $i ];
 
 	echo "<a class=\"nextprev\" href=\"./?sid=$startEntryId&entnum=$DEFAULT_ENTRY_NUM\">";
-	echo "<img src=\"./cmn/cmnImg/right.png\" alt=\"ナウい\">";
+	echo "<img src=\"../cmn/cmnImg/right.png\" alt=\"ナウい\">";
 	echo "</a>";
 }
 
@@ -375,7 +442,8 @@ echo "<div class=\"whitebox\"><div class=\"fb-comments\" data-href=\"https://kis
 
 
 ?>
-<script type="text/javascript" src="test.js"></script>
+<div id="snsHubBox"></div>
+
 <div id="bottompict">
 
 

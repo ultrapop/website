@@ -111,7 +111,7 @@ p#headcmt {
 	padding-left:	50px;
 	padding-right:	50px;
 
-	background:	rgba(255,240,240,0.8);
+	background:	rgba(255,240,240);
 	border-radius: 80px;
 	border-top-left-radius:  200px;
 	border-bottom-left-radius: 200px;
@@ -130,9 +130,8 @@ p#headcmt {
 }
 
 div#headbar {
-	background-color: rgba(255, 0, 0, 0.95);
-	padding-bottom: -10px;
-	text-shadow: 1px 2px 2px #a00,
+	background-color: rgba(255, 0, 0);
+text-shadow: 1px 2px 2px #a00,
 	3px 3px 5px #a00,
 	3px 3px 15px #a00,
 	3px 3px 25px #a00;
@@ -202,7 +201,7 @@ div#contentstop{
 	margin-top:-30px;
 	margin-bottom:20px;
 
-	background:	rgba(  255,240,240,0.50);
+	background:	rgba(  255,240,240);
 	text-shadow: 1px 2px 2px #c30,
 	0px 0px 5px #c30,
 	0px 0px 15px #c30,
@@ -222,7 +221,7 @@ div.contentstop2{
 	margin-top:10px;
 	margin-bottom:30px;
 
-	background:	rgba(  255,0,0,0.90);
+	background:	rgba(  255,0,0);
 	text-shadow: 1px 2px 2px #a00,
 	3px 3px 5px #a00,
 	3px 3px 15px #a00,

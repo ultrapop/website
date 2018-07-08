@@ -1,6 +1,7 @@
 /************
 	ボディ部
 *************/
+/*
 div.contentstitle{
 	font-weight:900;
 	font-size: 160%;
@@ -10,7 +11,7 @@ div.contentstitle{
 
 	border-radius: 10px;
 
-	background:	rgba(  255,0,0,0.90);
+	background:	rgba( 255,0,0);
 
 	transform: rotate(-1deg);
 	box-shadow: 0px 1px 1px #430;
@@ -23,6 +24,7 @@ div.contentstitle{
 	font-family: 'Noto Sans Japanese';
 
 }
+*/
 
 div#colums2{
 	width: 1080px;
@@ -40,7 +42,7 @@ div#entries{
 div#sns{
 	width: 300px;
 	display:inline-block;
-	background:	rgba(  255,0,0,0.90);
+	background:	rgba(  255,0,0);
 }
 
 div#hetriestop{
@@ -66,7 +68,7 @@ div#hetriestop{
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 
-	background:	rgba(  255,0,0,0.95);
+	background:	rgba(  255,0,0);
 
 	margin-left:125px;
 	margin-top:20px;
@@ -84,7 +86,7 @@ div#hetriestop{
 	border-top-left-radius: 10px;
  	border-bottom-left-radius: 10px;
 
-	background:	rgba(  255,0,0,0.92);
+	background:	rgba(  255,0,0);
 
 	transform: rotate(1deg);
 	box-shadow: 0px 1px 1px #500;
