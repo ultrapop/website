@@ -31,7 +31,7 @@ if (@$_POST['submit']) {
 		$today = date("Y-m-d");
 
 		$st = $pdo->query("INSERT INTO diaryentry(entrytitle,entrytext,entrydate,entryinvisible) VALUES('$title','$text','$today','1')");
-		header('Location: index.php');
+		header('Location: ../index.php');
 		exit();
 	}
 }
@@ -42,7 +42,7 @@ if (@$_POST['delete']) {
 	$st = $pdo->prepare("DELETE FROM diaryentry WHERE entryid=? ");
 	//SQLの発行
 	$st->execute(array($entryid));
-	header('Location: index.php');
+	header('Location: ../index.php');
 	exit();
 }
 
@@ -59,7 +59,7 @@ if (@$_POST['edit']) {
 	// 更新する値と該当のIDが入った変数をexecuteにセットしてSQLを実行
 	$st->execute($params);
 
-	header('Location: index.php');
+	header('Location: ../index.php');
 	exit();
 }
 
@@ -75,7 +75,7 @@ if (@$_POST['invisible']) {
 	// 更新する値と該当のIDが入った変数をexecuteにセットしてSQLを実行
 	$st->execute($params);
 
-	header('Location: index.php');
+	header('Location: ../index.php');
 	exit();
 }
 
