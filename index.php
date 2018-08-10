@@ -8,7 +8,9 @@ if(!strpos($host, 'local')){
 include 'common.php';
 
 //セッションを開始し、持ち主だけに見えるエントリを表示するか否かを判断する
-session_start();
+session_start([
+    'cookie_lifetime' => 864000,
+]);
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +99,7 @@ echo $text;
 echo "\" />\n";
 ?>
 
-<meta property="fb:app_id" content="413049892431122" />
+<!-- meta property="fb:app_id" content="413049892431122" /> fbコメント機能廃止のためコメントアウト-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -128,7 +130,7 @@ echoUA_lyr0();//ユーザーエージェント別にCSSをechoする
 </head>
 <body>
 
-<!-- fbコメントプラグインのjsらしきもの（ここで表示しているのではない）-->
+<!-- fbコメントプラグインのjsらしきもの（ここで表示しているのではない）fbコメント機能廃止のためコメントアウト
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -136,7 +138,7 @@ echoUA_lyr0();//ユーザーエージェント別にCSSをechoする
 	  js = d.createElement(s); js.id = id;
 	  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10&appId=413049892431122';
 	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	}(document, 'script', 'facebook-jssdk'));</script> -->
 
 <!-- fbいいねボタンのjsらしきもの（ここで表示しているのではない）-->
 <div id="fb-root"></div>
@@ -155,9 +157,10 @@ echoUA_lyr0();//ユーザーエージェント別にCSSをechoする
 
 
 <?php
-echo "<p hidden>";
+echo "<p hidden>";//なんかのSNSでdescriptionだかなんだかを設定するのに必要だったはず
 echo $text;
 echo "</p>\n";
+
 ?>
 
 	<div id="headblock">
@@ -192,6 +195,30 @@ echoTopCmt2($pdo);
 	<div id="colums2">
 		<div id="entries">
 <?php
+
+if ($_SESSION["NAME"] == $loginUsr && isset($loginUsr)) {
+
+	echo "<form method=\"post\" action=\"./control/post.php\">";
+	echo "<div class=\"post\">";
+//	echo "<p class=\"inputTitle\">編集ID<input class=\"inputID\" type=\"text\" name=\"entryid\" size=\"5\" readonly=\"readonly\" value=\"";
+//	echo $entryid;
+//	echo "\"></p>";
+	echo "<p class=\"inputTitle\">題名<input class=\"inputTitle\" type=\"text\" name=\"title\" size=\"70\" value=";
+//	echo $title;
+	echo "></p>";
+	echo "<p class=\"inputTitle\">本文<br><textarea class=\"inputText\" name=\"text\" rows=\"25\">";
+//	echo $text;
+	echo "</textarea></p>";
+	echo "<input class=\"button\" name=\"submit\" type=\"submit\" value=\"投稿\" >";
+	echo "　<a href=\"./control\">control</a></p>";
+	echo "</div>";
+	echo "</form>";
+
+}
+
+
+
+
 
 // ・id初期値を取得する
 // ・表示数を取得する
@@ -350,8 +377,8 @@ if( $i < count( $entryIdArray ) - 1){
 }
 
 echo "</div>";
-//<!-- fbコメント欄 appId=413049892431122 -->
-echo "<div class=\"whitebox\"><div class=\"fb-comments\" data-href=\"https://kisimoto.sakura.ne.jp/\" data-width=\"800\" data-numposts=\"5\"></div></div>";
+//<!-- fbコメント欄 appId=413049892431122 -->fbコメント機能廃止のためコメントアウト
+//echo "<div class=\"whitebox\"><div class=\"fb-comments\" data-href=\"https://kisimoto.sakura.ne.jp/\" data-width=\"800\" data-numposts=\"5\"></div></div>";
 
 
 ?>

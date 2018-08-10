@@ -3,7 +3,9 @@
 error_reporting(0);
 //include '../common.php';
 require_once '../../website_etc/dbpass.php';
-session_start();
+session_start([
+    'cookie_lifetime' => 864000,
+]);
 
 // ログイン状態チェック
 // $loginUsrを読みにいかずにnullが通らないように issetも見る
@@ -18,6 +20,7 @@ if ($_SESSION["NAME"] != $loginUsr || !isset($loginUsr)) {
 <head>
 <a href="./">ウルトラポップエントリ編集ツール</a><br>
 <a href="./logout.php">ログアウト</a><br>
+<a href="../">indexページへ</a><br>
 <meta charset="utf-8">
 <title>記事投稿</title>
 

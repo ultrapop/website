@@ -1,8 +1,9 @@
 <?php
 error_reporting(0);
 require_once '../../website_etc/dbpass.php';
-session_start();
-
+session_start([
+    'cookie_lifetime' => 864000,
+]);
 
 // ログイン状態チェック
 // $loginUsrを読みにいかずにnullが通らないように issetも見る

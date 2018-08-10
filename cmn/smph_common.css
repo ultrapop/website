@@ -21,6 +21,15 @@ img{
 	max-width: 90%;
 }
 
+input{
+	width: 60%;
+}
+
+textarea{
+	width: 60%;
+}
+
+
 a{
 	color: #404040;
 	text-decoration:none;
