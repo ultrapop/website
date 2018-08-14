@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 zzzz
 
 yyyyy
 
 XXXX
 
+=======
+>>>>>>> parent of 6868832... xxxx
 <?php
 // localが含まれる時以外は、とにかくエラー表示しない
 $host=gethostname();
