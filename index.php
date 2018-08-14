@@ -8,9 +8,12 @@ if(!strpos($host, 'local')){
 include 'common.php';
 
 //セッションを開始し、持ち主だけに見えるエントリを表示するか否かを判断する
-session_start([
-    'cookie_lifetime' => 864000,
-]);
+if( !isset( $_SESSION ) ) {
+	session_start([
+		'cookie_lifetime' => 864000,
+	]);
+}
+
 ?>
 
 <!DOCTYPE html>
