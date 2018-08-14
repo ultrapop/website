@@ -1,3 +1,6 @@
+1111
+
+
 <?php
 // localが含まれる時以外は、とにかくエラー表示しない
 $host=gethostname();
