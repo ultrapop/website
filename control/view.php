@@ -3,11 +3,9 @@
 error_reporting(0);
 //include '../common.php';
 require_once '../../website_etc/dbpass.php';
-if( !isset( $_SESSION ) ) {
-	session_start([
-		'cookie_lifetime' => 864000,
-	]);
-}
+session_start([
+    'cookie_lifetime' => 864000,
+]);
 
 // ログイン状態チェック
 // $loginUsrを読みにいかずにnullが通らないように issetも見る
@@ -51,9 +49,7 @@ if ($_SESSION["NAME"] != $loginUsr || !isset($loginUsr)) {
 <body>
 <form method="post" action="post.php">
 	<div class="post">
-		<p class="inputTitle">編集ID<input class="inputID" type="text" name="entryid" size="5" readonly="readonly" value="
-		<?php if(isset($entryid)){echo $entryid;} ?>">
-		</p>
+		<p class="inputTitle">編集ID<input class="inputID" type="text" name="entryid" size="5" readonly="readonly" value="<?php echo $entryid ?>"></p>
 		<p class="inputTitle">題名<input class="inputTitle" type="text" name="title" size="40" value="<?php echo $title ?>"></p>
 		<p class="inputTitle">本文<br><textarea class="inputText" name="text" rows="15"><?php echo $text ?></textarea></p>
 		<input class="button" name="submit" type="submit" value="投稿" >　<input class="button" name="edit" type="submit" value="編集">　<input class="button" name="delete" type="submit" value="削除">　<input class="button" name="invisible" type="submit" value="非表示"></p>

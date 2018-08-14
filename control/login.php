@@ -2,11 +2,7 @@
 error_reporting(0);
 require_once '../../website_etc/dbpass.php';
 // セッション開始
-if( !isset( $_SESSION ) ) {
-	session_start([
-		'cookie_lifetime' => 864000,
-	]);
-}
+session_start();
 
 
 // エラーメッセージの初期化

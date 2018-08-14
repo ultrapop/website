@@ -9,9 +9,7 @@ $sid = -1;
 $host=gethostname();
 
 $error = $title = $text = '';
-if(!empty($_POST['entryid'])){
-	$entryid = $_POST['entryid'];
-}
+$entryid = $_POST['entryid'];
 $title = $_POST['title'];
 $text = $_POST['text'];
 
@@ -24,7 +22,7 @@ if (!strpos($host, 'sakura')){
 	$text = mb_convert_encoding($text, "EUC-JP","ASCII,JIS,UTF-8,EUC-JP,SJIS-win");
 }
 
-if (isset($_POST['submit'])) {
+if (@$_POST['submit']) {
 	if (!$title) $error .= 'タイトルがありません。<br>';
 	if (mb_strlen($title) > 80) $error .= 'タイトルが長すぎます。<br>';
 	if (!$text) $error .= '本文がありません。<br>';
