@@ -3,11 +3,15 @@
 error_reporting(0);
 //include '../common.php';
 require_once '../../website_etc/dbpass.php';
+<<<<<<< HEAD
 if( !isset( $_SESSION ) ) {
 	session_start([
 		'cookie_lifetime' => 864000,
 	]);
 }
+=======
+session_start();
+>>>>>>> parent of eaa783b... Merge pull request #2 from ultrapop/dev2
 
 // ログイン状態チェック
 // $loginUsrを読みにいかずにnullが通らないように issetも見る
@@ -22,7 +26,6 @@ if ($_SESSION["NAME"] != $loginUsr || !isset($loginUsr)) {
 <head>
 <a href="./">ウルトラポップエントリ編集ツール</a><br>
 <a href="./logout.php">ログアウト</a><br>
-<a href="../">indexページへ</a><br>
 <meta charset="utf-8">
 <title>記事投稿</title>
 

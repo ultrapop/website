@@ -1,11 +1,16 @@
 <?php
 error_reporting(0);
 require_once '../../website_etc/dbpass.php';
+<<<<<<< HEAD
 if( !isset( $_SESSION ) ) {
 	session_start([
 		'cookie_lifetime' => 864000,
 	]);
 }
+=======
+session_start();
+
+>>>>>>> parent of eaa783b... Merge pull request #2 from ultrapop/dev2
 
 // ログイン状態チェック
 // $loginUsrを読みにいかずにnullが通らないように issetも見る
