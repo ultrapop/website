@@ -4,7 +4,15 @@
 $sid = -1;
 $act = "";
 
-$pdo = new PDO("mysql:dbname=kisimoto_ultrapop;host=mysql609.db.sakura.ne.jp", "kisimoto", "rei2zouko");//MySqlをオブジェクトとして生成
+require_once '../../../website_etc/dbpass.php';
+
+if(strpos($host, 'sakura.ne.jp')){
+	$pdo = new PDO($dbname , $usr, $pass);
+}elseif(strpos($host, 'local')){
+	$pdo = new PDO($dbname_local, $usr, $pass);
+}else{
+	exit(0);
+}
 
 // URLからパラメータを取得
 // urlから取得できるなら、単独idを取得する

@@ -22,7 +22,7 @@ $act = "";
 $host=gethostname();
 
 if (!strpos($host, 'sakura')){
-	$pdo = new PDO("mysql:dbname=test;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
+	$pdo = new PDO($dbname_local, $usr, $pass);
 }else{
 	$pdo = new PDO($dbname , $usr, $pass);
 }

@@ -16,7 +16,7 @@ $title = $_POST['title'];
 $text = $_POST['text'];
 
 if (!strpos($host, 'sakura')){
-	$pdo = new PDO("mysql:dbname=test;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
+	$pdo = new PDO($dbname_local, $usr, $pass);
 }else{
 	$pdo = new PDO($dbname , $usr, $pass);
 	//よろしくないが、DBのエンコードに対応（さくらインターネットがEUCで、DBを持ってくると意味不明になる

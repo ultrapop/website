@@ -130,7 +130,7 @@ p#headcmt {
 }
 
 div#headbar {
-	background-color: rgba(255, 0, 0);
+	background:#ff0000;
 text-shadow: 1px 2px 2px #a00,
 	3px 3px 5px #a00,
 	3px 3px 15px #a00,
@@ -221,7 +221,7 @@ div.contentstop2{
 	margin-top:10px;
 	margin-bottom:30px;
 
-	background:	rgba(  255,0,0);
+	background:#ff0000;
 	text-shadow: 1px 2px 2px #a00,
 	3px 3px 5px #a00,
 	3px 3px 15px #a00,

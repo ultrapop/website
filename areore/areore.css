@@ -1,0 +1,71 @@
+/************
+	ボディ部
+*************/
+
+input.inputTitle{
+	width: 60%;
+}
+
+textarea{
+	width: 80%;
+}
+
+
+div#entries{
+	min-width: 300px;
+	max-width: 780px;
+	width: 70%;
+	padding-left: 20px;
+}
+
+div#sns{
+	width: 300px;
+	display:inline-block;
+	background:	rgba(  255,0,0);
+}
+
+a.entrylink {
+	color: #fff8f8;
+}
+
+a.diary{
+	border-bottom: thin solid #505050;
+	text-decoration: underline;
+}
+
+/* いいね系SNSボタンをまとめる */
+div.buttons{
+	width:300px;
+	margin-left: auto;
+}
+
+/************
+	下部
+*************/
+div#btmlnk{
+	height:43px;
+	margin-top: 40px;
+
+	width:100%;
+	background-color: #101010;
+	text-align: center;
+}
+
+a.nextprev {
+div#btmlnk{
+	height:43px;
+	margin-top: 40px;
+
+	width:100%;
+	background-color: #101010;
+	text-align: center;
+}
+
+div#btmlnk{
+	height:43px;
+	margin-top: 40px;
+
+	width:100%;
+	background-color: #101010;
+	text-align: center;
+}

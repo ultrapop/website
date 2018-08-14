@@ -5,11 +5,20 @@
 input.inputTitle{
 	width: 60%;
 	font-size: 150%;
+	padding: 5px;
 }
+
+input#submit_button {
+	padding	: 10px;
+	width: 30%;
+	font-size: 150%;
+}
+
 
 textarea{
 	width: 80%;
 	font-size: 100%;
+	padding: 5px;
 }
 
 div#colums2{
@@ -28,7 +37,7 @@ div#entries{
 div#sns{
 	width: 300px;
 	display:inline-block;
-	background:	rgba(  255,0,0);
+	background:#ff0000;
 }
 
 div#hetriestop{
@@ -54,7 +63,7 @@ div#hetriestop{
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 
-	background:	rgba(  255,0,0);
+	background:#ff0000;
 
 	margin-left:125px;
 	margin-top:20px;
@@ -72,7 +81,7 @@ div#hetriestop{
 	border-top-left-radius: 10px;
  	border-bottom-left-radius: 10px;
 
-	background:	rgba(  255,0,0);
+	background:#ff0000;
 
 	transform: rotate(1deg);
 	box-shadow: 0px 1px 1px #500;

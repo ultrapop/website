@@ -8,11 +8,10 @@ if(!strpos($host, 'local')){
 include 'common.php';
 
 //セッションを開始し、持ち主だけに見えるエントリを表示するか否かを判断する
-if( !isset( $_SESSION ) ) {
-	session_start([
-		'cookie_lifetime' => 864000,
-	]);
-}
+session_start([
+	'cookie_lifetime' => 864000,
+]);
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +43,7 @@ require_once '../../website_etc/areore_dbpass.php';
 if(strpos($host, 'sakura.ne.jp')){
 	$pdo = new PDO($dbname , $usr, $pass);
 }elseif(strpos($host, 'local')){
-	$pdo = new PDO("mysql:dbname=areore;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
+	$pdo = new PDO($dbname_local, $usr, $pass);
 }else{
 	exit(0);
 }
@@ -62,35 +61,46 @@ if(strpos($host, 'sakura.ne.jp')){
 
 	if ((strpos($ua, 'Android') !== false) && (strpos($ua, 'Mobile') !== false) || (strpos($ua, 'iPhone') !== false) || (strpos($ua, 'Windows Phone') !== false)) {
     	// スマートフォンからアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./smph_diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"./smph_areore.css\" type=\"text/css\">";
 
 	} elseif ((strpos($ua, 'Android') !== false) || (strpos($ua, 'iPad') !== false)) {
     	// タブレットからアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"./areore.css\" type=\"text/css\">";
 
 	} elseif ((strpos($ua, 'DoCoMo') !== false) || (strpos($ua, 'KDDI') !== false) || (strpos($ua, 'SoftBank') !== false) || (strpos($ua, 'Vodafone') !== false) || (strpos($ua, 'J-PHONE') !== false)) {
     	// 携帯からアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"./areore.css\" type=\"text/css\">";
 	} else {
     	// その他（PC）からアクセスされた場合
-		echo "<link rel=\"stylesheet\" href=\"./diary.css\" type=\"text/css\">";
+		echo "<link rel=\"stylesheet\" href=\"./areore.css\" type=\"text/css\">";
 		$mainClms = 2; // メインの段組み１カラム
 	}
 ?>
 
 </head>
 <body>
-
+<p id="topTitle">アレオレ！</p>
 
 <?php
-$text="オバケはいないと思います、だって怖いんだもん。怖いオバケをスクラップブッキングして、少しだけ日常を豊かにする。きっと心霊トンネルもほっこりする、生活応援サイトです";
+$text="「何を書いたか？」が、「誰が書いたか？」よりも書き手の評価になるライティングサイト";
 echo "<p hidden>";//なんかのSNSでdescriptionだかなんだかを設定するのに必要だったはず
 echo $text;
 echo "</p>\n";
 
+if (isset($_SESSION["NAME"])) {
+	echo "ようこそ";
+	echo $_SESSION["NAME"];
+	echo "さん　";
+	echo "　<a href=\"./logout.php\">ログアウト</a></p>";
+}else{
+	echo "　<a href=\"./login.php\">ログイン</a></p>";
+
+}
+
+
 ?>
-	<div id="colums2">
-		<div id="entries">
+
+<div id="entries">
 <?php
 
 // ・id初期値を取得する
@@ -118,20 +128,6 @@ if(isset($_GET['entnum'])) {	// urlから取得できるなら、一度に表示
 	}
 }
 
-// どうせたくさん最新に戻りたいときもあるのだから、まずはentryidですべて管理する
-//  １．とりあえずentryidのみの配列をdbから取得する（降順で）
-//  ２．ループを走らせて、$sidと一致する場所を探す（無ければ、踏み越えた位置で？）
-//  ３．一致した場所のiを探す
-//  ４．一致した場所のiからentnumを引いた値にある内容が前に行くときのsid
-//  ５．一致した場所のiにentnumを足した値にある内容が過去に行くときのsid
-
-// エントリを管理するためIDをあらかじめ取得するが、問題点もある!!
-//・問題点１．少なくとも２回はアクセスするので、その間に削除が入った場合につじつまが合わなくなる
-//					→削除そのものがレアなので、いらないのでは？
-//					→ＤＢをロックする方法を調べる
-//・問題点２．エントリ数が増えた場合に処理時間がそれなりに掛かりそう
-//					→計算量が大きくなるものは、なるべくMySqlで処理したいが、、、
-
 $st = $pdo->query("select * from entries");
 
 while (1) { // エントリ出力ループ
@@ -156,13 +152,6 @@ while (1) { // エントリ出力ループ
 		echo "<br>";
 		echo "<br>";
 		// 終了条件
-//		if ( $i - $loopCnt <= 0 ) { // 最古の記事を出力したなら終了
-//			break;
-//		}
-//		if ( $loopCnt >= $entnum - 1 ) { // entnum分の記事を出力したなら終了
-//			break;
-//		}
-//		$loopCnt = $loopCnt + 1;
 	}else{
 		break;
 	}
@@ -170,21 +159,15 @@ while (1) { // エントリ出力ループ
 
 echo "</div>";//  id="entries"の終わり
 
-echo "</div>";//  id="colums2"の終わり
-
-//<!-- fbコメント欄 appId=413049892431122 -->fbコメント機能廃止のためコメントアウト
-//echo "<div class=\"whitebox\"><div class=\"fb-comments\" data-href=\"https://kisimoto.sakura.ne.jp/\" data-width=\"800\" data-numposts=\"5\"></div></div>";
-
-if ($_SESSION["NAME"] == $loginUsr && isset($loginUsr)) {
+if (isset($_SESSION["NAME"])) {
 
 	echo "<form method=\"post\" action=\"./post.php\">";
 	echo "<div class=\"post\">";
-	echo "<p class=\"inputTitle\">題名<input class=\"inputTitle\" type=\"text\" name=\"title\" size=\"70\" value=";
-	echo "></p>";
-	echo "<p class=\"inputTitle\">本文<br><textarea class=\"inputText\" name=\"text\" rows=\"25\">";
-	echo "</textarea></p>";
+	echo "<p class=\"inputTitle\">題名<input class=\"inputTitle\" type=\"text\" name=\"title\" size=\"70\" value=\"\"></p>";
+	echo "<p class=\"inputTitle\">本文<br></p><textarea class=\"inputText\" name=\"text\" rows=\"25\">";
+	echo "</textarea>";
 	echo "<input class=\"button\" name=\"submit\" type=\"submit\" value=\"投稿\" >";
-	echo "　<a href=\"./control\">control</a></p>";
+	echo "<a href=\"./control\">control</a>";
 	echo "</div>";
 	echo "</form>";
 
@@ -192,8 +175,6 @@ if ($_SESSION["NAME"] == $loginUsr && isset($loginUsr)) {
 
 ?>
 <div id="bottompict">
-
-
 </div>
 </body>
 </html>

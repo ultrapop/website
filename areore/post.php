@@ -13,16 +13,18 @@ if(!empty($_POST['entryid'])){
 	$entryid = $_POST['entryid'];
 }
 
-	$title = $_POST['title'];
+$title = $_POST['title'];
 $text = $_POST['text'];
 
-if (!strpos($host, 'sakura')){
-	$pdo = new PDO("mysql:dbname=areore;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
-}else{
+if(strpos($host, 'sakura.ne.jp')){
 	$pdo = new PDO($dbname , $usr, $pass);
 	//よろしくないが、DBのエンコードに対応（さくらインターネットがEUCで、DBを持ってくると意味不明になる
-	$title = mb_convert_encoding($title, "EUC-JP","ASCII,JIS,UTF-8,EUC-JP,SJIS-win");//日本語データをUTF-8に変換(どういう形式でDBから吐き出されているか？確認すること)←とりあえずギブアップ
-	$text = mb_convert_encoding($text, "EUC-JP","ASCII,JIS,UTF-8,EUC-JP,SJIS-win");
+	$title = mb_convert_encoding($title, "UTF-8","ASCII,JIS,UTF-8,EUC-JP,SJIS-win");//日本語データをUTF-8に変換(どういう形式でDBから吐き出されているか？確認すること)←とりあえずギブアップ
+	$text = mb_convert_encoding($text, "UTF-8","ASCII,JIS,UTF-8,EUC-JP,SJIS-win");
+}elseif(strpos($host, 'local')){
+	$pdo = new PDO($dbname_local, $usr, $pass);
+}else{
+	exit(0);
 }
 
 if (@$_POST['submit']) {

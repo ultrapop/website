@@ -45,7 +45,7 @@ require_once '../website_etc/dbpass.php';
 if(strpos($host, 'sakura.ne.jp')){
 	$pdo = new PDO($dbname , $usr, $pass);
 }elseif(strpos($host, 'local')){
-	$pdo = new PDO("mysql:dbname=test;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
+	$pdo = new PDO($dbname_local, $usr, $pass);
 }else{
 	exit(0);
 }
@@ -212,7 +212,7 @@ if ($_SESSION["NAME"] == $loginUsr && isset($loginUsr)) {
 	echo "<p class=\"inputTitle\">本文<br><textarea class=\"inputText\" name=\"text\" rows=\"25\">";
 //	echo $text;
 	echo "</textarea></p>";
-	echo "<input class=\"button\" name=\"submit\" type=\"submit\" value=\"投稿\" >";
+	echo "<input id=\"submit_button\" name=\"submit\" type=\"submit\" value=\"投稿\" >";
 	echo "　<a href=\"./control\">control</a></p>";
 	echo "</div>";
 	echo "</form>";

@@ -14,7 +14,7 @@ $error = $title = $text = '';
 if(strpos($host, 'sakura.ne.jp')){
 	$pdo = new PDO($dbname , $usr, $pass);
 }elseif(strpos($host, 'local')){
-	$pdo = new PDO("mysql:dbname=test;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
+	$pdo = new PDO($dbname_local, $usr, $pass);
 }else{
 	exit(0);
 }

@@ -1,11 +1,6 @@
 <?php
 
 error_reporting(0);
-if( !isset( $_SESSION ) ) {
-	session_start([
-		'cookie_lifetime' => 864000,
-	]);
-}
 
 if (isset($_SESSION["NAME"])) {
     $errorMessage = "ログアウトしました。";
@@ -13,10 +8,15 @@ if (isset($_SESSION["NAME"])) {
     $errorMessage = "セッションがタイムアウトしました。";
 }
 
-// セッションの変数のクリア
+// セッション破壊シーケンス
+    // とりあえずセッションを開始or復帰する
+session_start();
+    // セッションの変数のクリア
 $_SESSION = array();
-
-// セッションクリア
+    //セッションクッキーの削除
+if (isset($_COOKIE["PHPSESSID"])) {
+    setcookie("PHPSESSID", '', time() - 1800, '/');
+}
 @session_destroy();
 ?>
 

@@ -67,13 +67,16 @@ echoUA_lyr2();//ユーザーエージェント別にCSSをechoする
 
 require_once '../../../website_etc/dbpass.php';
 
+if(strpos($host, 'sakura.ne.jp')){
+	$pdo = new PDO($dbname , $usr, $pass);
+}elseif(strpos($host, 'local')){
+	$pdo = new PDO($dbname_local, $usr, $pass);
+}else{
+	exit(0);
+}
+
 $host=gethostname();
 
-if (strpos($host, 'local')){
-	$pdo = new PDO("mysql:dbname=test;host=localhost;unix_socket=/tmp/mysql.sock", $usr, $pass);
-}else{
-	$pdo = new PDO($dbname , $usr, $pass);
-}
 
 //  上部のコメントをランダム表示する
 echoTopCmt($pdo);
