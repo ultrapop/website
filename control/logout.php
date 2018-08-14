@@ -1,11 +1,7 @@
 <?php
 
 error_reporting(0);
-if( !isset( $_SESSION ) ) {
-	session_start([
-		'cookie_lifetime' => 864000,
-	]);
-}
+session_start();
 
 if (isset($_SESSION["NAME"])) {
     $errorMessage = "ログアウトしました。";
