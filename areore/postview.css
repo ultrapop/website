@@ -1,0 +1,24 @@
+input.inputID{
+	font-family : inherit;
+	font-size:120%;
+}
+input.inputTitle{
+	font-family : inherit;
+	font-size:100%;
+}
+textarea.inputText{
+	font-family : inherit;
+	font-size:60%;
+	width:93%;
+	margin-left: 15px;
+}
+p.inputTitle{
+	font-family : inherit;
+	font-size:150%;
+}
+
+input.button {
+		width: 100px;
+		font-size:250%;
+}
+	
