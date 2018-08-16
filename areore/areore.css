@@ -10,62 +10,125 @@ textarea{
 	width: 80%;
 }
 
+div#topTitle{
+	padding-left:30px;
+	font-size:200%;
+	display:inline-block;
+	font-weight: bold;
+	font-style: italic;
+}
+
+div#topSubTitle{
+	padding-left:40px;
+	font-size:90%;
+	display:inline-block;
+}
+
+
+div#welcome{
+	padding-left:40px;
+	font-size:90%;
+}
 
 div#entries{
-	min-width: 300px;
-	max-width: 780px;
-	width: 70%;
-	padding-left: 20px;
+	padding-left: 35px;
 }
 
-div#sns{
-	width: 300px;
+div#areore_confirm{
+	margin-top: 35px;
+}
+
+p.entryId{
 	display:inline-block;
-	background:	rgba(  255,0,0);
+	margin-left: 0px;
+	font-size:80%;
 }
 
-a.entrylink {
-	color: #fff8f8;
+p.entryTitle{
+	display:inline-block;
+	margin-left: 25px;
+	margin-bottom: 0px;
+	font-size:150%;
 }
 
-a.diary{
-	border-bottom: thin solid #505050;
-	text-decoration: underline;
+p.entryDateTime{
+	display:inline-block;
+	margin-left: 25px;
+	font-size:80%;
 }
 
-/* いいね系SNSボタンをまとめる */
-div.buttons{
-	width:300px;
-	margin-left: auto;
+p.ｗUser{
+	display:inline-block;
+	margin-left: 25px;
+	font-size:100%;
+}
+input.button_areore {
+	display:inline-block;
+	font-size: 150%;
+	margin-left: 2px;
+}
+
+
+p.entryText{
+	margin-left: 20px;
+}
+
+td.col1{
+text-align: right;
 }
 
 /************
 	下部
 *************/
-div#btmlnk{
-	height:43px;
-	margin-top: 40px;
-
-	width:100%;
-	background-color: #101010;
-	text-align: center;
+div.post{
+	padding-left: 0px;
 }
 
-a.nextprev {
-div#btmlnk{
-	height:43px;
-	margin-top: 40px;
-
-	width:100%;
-	background-color: #101010;
-	text-align: center;
+input.inputTitle{
+	width: 60%;
+	font-size: 150%;
+	padding: 5px;
 }
 
-div#btmlnk{
-	height:43px;
-	margin-top: 40px;
+input.button {
+	padding	: 10px;
+	margin-bottom: 50px;
+	margin-top: 20px;
+	width: 30%;
+	font-size: 150%;
+}
 
-	width:100%;
-	background-color: #101010;
-	text-align: center;
+
+
+
+input.areore_button {
+	padding	: 3px;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	width: 30%;
+	font-size: 110%;
+	background-image: linear-gradient(0deg, #c0c0c0, #e0e0e0); /* グラデーション */
+	border: 1px solid #808080; /* 枠線 */
+	border-radius: 0.3em;      /* 角丸 *//*	background-color: #909090;
+*/
+}
+
+form.areore{
+	display:inline-block;
+
+}
+
+textarea{
+	width: 80%;
+	font-size: 100%;
+	padding: 5px;
+}
+
+#bottompict {
+	background-color: #909090;
+	background-image: url("https://kisimoto.sakura.ne.jp/cmn/cmnImg/footer1.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position-y: center;
+	height: 280px;
 }

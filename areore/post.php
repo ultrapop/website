@@ -2,6 +2,11 @@
 require_once '../../website_etc/areore_dbpass.php';
 error_reporting(0);
 
+session_start([
+	'cookie_lifetime' => 864000,
+]);
+
+
 //act に合わせて処理を行う。無ければ、他の制御
 
 $sid = -1;
@@ -32,10 +37,12 @@ if (@$_POST['submit']) {
 	if (mb_strlen($title) > 80) $error .= 'タイトルが長すぎます。<br>';
 	if (!$text) $error .= '本文がありません。<br>';
 	if (!$error) {
+		$text=htmlspecialchars($text);
+		$text=nl2br($text, true);
 		date_default_timezone_set('Asia/Tokyo');
 		$today = date("Y-m-d H:i:s");
-
-		$st = $pdo->query("INSERT INTO entries(entrytitle,entrytext,date) VALUES('$title','$text','$today')");
+		$wUserId = $_SESSION["NAME"]; 
+		$st = $pdo->query("INSERT INTO entries(entrytitle,entrytext,date,wUserId) VALUES('$title','$text','$today','$wUserId')");
 		header('Location: index.php');
 		exit();
 	}
@@ -83,7 +90,7 @@ if (@$_POST['invisible']) {
 	header('Location: index.php');
 	exit();
 }
-
+echo $error;
 echo "問題が起こりました";
 echo "<a href=\"./\">編集画面に戻る</a>";
 exit();

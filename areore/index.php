@@ -77,25 +77,28 @@ if(strpos($host, 'sakura.ne.jp')){
 	}
 ?>
 
+<title>アレオレ！</title>
 </head>
 <body>
-<p id="topTitle">アレオレ！</p>
+<div id="topTitle">アレオレ！</div>
+<div id="topSubTitle">フラットな評価がフィードバックされる書込みサイト</div>
 
 <?php
-$text="「何を書いたか？」が、「誰が書いたか？」よりも書き手の評価になるライティングサイト";
+$text="フラットな評価がフィードバックされる書込みサイト";
 echo "<p hidden>";//なんかのSNSでdescriptionだかなんだかを設定するのに必要だったはず
 echo $text;
 echo "</p>\n";
-
+echo "<div id=\"welcome\">";
 if (isset($_SESSION["NAME"])) {
 	echo "ようこそ";
 	echo $_SESSION["NAME"];
 	echo "さん　";
-	echo "　<a href=\"./logout.php\">ログアウト</a></p>";
+	echo "　<a href=\"./logout.php\">ログアウト</a>";
+	echo "　<a href=\"./mypage.php\">マイページ</a></p>";
 }else{
-	echo "　<a href=\"./login.php\">ログイン</a></p>";
-
+	echo "書き込むには　<a href=\"./login.php\">ログインまたは新規登録</a></p>";
 }
+echo "</div>";
 
 
 ?>
@@ -143,14 +146,59 @@ while (1) { // エントリ出力ループ
 		// 日本語データをUTF-8に変換して取得(サーバからはeuc-jpで返ってくる。!!変更方法が分からない)
 		$title = $row['entrytitle'];
 		$title = mb_convert_encoding($title, "UTF-8","ASCII,JIS,UTF-8,EUC-JP,SJIS-win");
+		$title = htmlspecialchars($title);
+
+		$dtt = htmlspecialchars($row['date']);
+
+		$wUserId =  htmlspecialchars($row['wUserId']);
 	
-		echo "<br>";
+		echo "<p class=\"entryId\">";
 		echo $entryid;
+		echo "</p><p class=\"entryTitle\">";
 		echo $title;
-		echo "<br>";
+		echo "</p>";
+
+		if($wUserId === $_SESSION["NAME"]){
+			//自分の書込なら
+			if($row['areore'] == 1){
+				//アレオレ済み
+				echo "<p class=\"ｗUser\">";
+				echo $wUserId;
+				echo " さん（アレオレ！済み）";
+				echo "</p>";
+			}else{
+				//アレオレしてない
+				echo "<p class=\"ｗUser\">";
+				echo $wUserId;
+				echo "(非公表)</p>";
+				if($row['wUserId'] == 0){
+					echo "<form class=\"areore\" method=\"post\" action=\"./areore.php\">";
+					echo "<div class=\"post\">";
+					echo "<input class=\"button_areore\" name=\"areore\" type=\"submit\" value=\"アレオレする！\" >";
+					echo "<input name=\"wid\" type=\"hidden\" value=\"$entryid\" >";
+					echo "<input name=\"userid\" type=\"hidden\" value=\"$wUserId\" >";
+					echo "<input name=\"title\" type=\"hidden\" value=\"$title\" >";
+					echo "<input name=\"date\" type=\"hidden\" value=\"$dtt\" >";
+					echo "<input name=\"text\" type=\"hidden\" value=\"$text\" >";
+					echo "</div>";
+					echo "</form>";
+				}
+			}
+		}else{
+			//他人の書込、ログアウト中なら
+			if($row['areore'] == 1){
+				echo "<p class=\"ｗUser\">";
+				echo $wUserId;
+				echo " さん";
+				echo "</p>";
+			}
+		}
+
+		echo "<p class=\"entryDateTime\">";
+		echo $dtt;
+		echo "</p><p class=\"entryText\">";
 		echo $text;
-		echo "<br>";
-		echo "<br>";
+		echo "</p>";
 		// 終了条件
 	}else{
 		break;
@@ -167,7 +215,7 @@ if (isset($_SESSION["NAME"])) {
 	echo "<p class=\"inputTitle\">本文<br></p><textarea class=\"inputText\" name=\"text\" rows=\"25\">";
 	echo "</textarea>";
 	echo "<input class=\"button\" name=\"submit\" type=\"submit\" value=\"投稿\" >";
-	echo "<a href=\"./control\">control</a>";
+	echo "　<a href=\"./control\">control</a>";
 	echo "</div>";
 	echo "</form>";
 
