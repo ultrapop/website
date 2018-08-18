@@ -215,7 +215,6 @@ if (isset($_SESSION["NAME"])) {
 	echo "<p class=\"inputTitle\">本文<br></p><textarea class=\"inputText\" name=\"text\" rows=\"25\">";
 	echo "</textarea>";
 	echo "<input class=\"button\" name=\"submit\" type=\"submit\" value=\"投稿\" >";
-	echo "　<a href=\"./control\">control</a>";
 	echo "</div>";
 	echo "</form>";
 
